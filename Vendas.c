@@ -40,17 +40,18 @@ void exibirProdutos(Produto *maquina[], int tamanho, float saldo)
 {
     system("cls");
     printf("=== Maquina de vendas Gerhard ===\n");
-    printf("Saldo R$%2.f\n\n",saldo);
+    printf("Saldo R$%2.f\n\n", saldo);
 
     for (int i = 0; i < tamanho; i++)
     {
         printf("%d. %s\t- R$%.2f (Em estoque: %d)\n",
-            i + 1, maquina[i]->name, maquina[i]->preco, maquina[i]->estoque);
+               i + 1, maquina[i]->name, maquina[i]->preco, maquina[i]->estoque);
     }
     printf("\n0. Sair\n");
 }
 
-void vender(Produto* produto, float* saldo){
+void vender(Produto *produto, float *saldo)
+{
     produto->estoque--;
     *saldo -= produto->preco;
 }
@@ -87,7 +88,8 @@ int main()
         if (opcao == 0)
         {
             break;
-        } else if (opcao >= 1 && opcao <= PRODUTOS_QTD)
+        }
+        else if (opcao >= 1 && opcao <= PRODUTOS_QTD)
         {
             vender(maquina[opcao - 1], &saldo);
         }
